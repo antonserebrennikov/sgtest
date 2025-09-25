@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.jnk.tinycontainer": {
+      "version": "https://github.com/JanikHelbig/TinyContainer.git?path=Assets/TinyContainer",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2aafec16f3b1434b3a68d7dc2c49c93510cedb6d"
+    },
     "com.unity.2d.animation": {
       "version": "10.2.0",
       "depth": 0,
@@ -123,7 +130,7 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.36",
+      "version": "3.0.38",
       "depth": 0,
       "source": "registry",
       "dependencies": {
