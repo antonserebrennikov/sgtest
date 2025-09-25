@@ -1,0 +1,4 @@
+{
+	"name": "Game.Common.Utils.UI",
+	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:88d84d6abffab4354bb047492bbb27fd" ]
+}

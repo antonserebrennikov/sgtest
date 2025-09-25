@@ -1,0 +1,4 @@
+{
+	"name": "Game.MainMenu.Presenter",
+	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:97bef7e0aff7147b8bbb5187ff4ec5eb" ]
+}

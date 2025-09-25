@@ -1,0 +1,25 @@
+{
+    "name": "Game.Cards.Controller",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a6a61403670034a1d9412c683ae2ed07",
+        "GUID:fa5db07da5d88475d9b96bf2203a682c",
+        "GUID:683eb415c59a66c40b09d8cf1710d72f",
+        "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77",
+        "GUID:4e551380f05dd40f4a7465c23711c537",
+        "GUID:a2bb809f3226347b39741b7dc913a4cd",
+        "GUID:cb63f3496ccae44298082bb94c4474ee",
+        "GUID:92406ade6a2064a9392c946323b04ee8",
+        "GUID:88d84d6abffab4354bb047492bbb27fd",
+        "GUID:c7d16f0ec56574886ab8fe4d6d66509a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

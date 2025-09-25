@@ -1,0 +1,22 @@
+{
+    "name": "Game.MainMenu.Controller",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a6a61403670034a1d9412c683ae2ed07",
+        "GUID:e4469910fe5734c16bbb4d4af4f82017",
+        "GUID:683eb415c59a66c40b09d8cf1710d72f",
+        "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77",
+        "GUID:a2bb809f3226347b39741b7dc913a4cd",
+        "GUID:4e551380f05dd40f4a7465c23711c537",
+        "GUID:fa5db07da5d88475d9b96bf2203a682c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 9b912babf7fa047bc8cc07209cf1faff
+  m_SerializeEntries:
+  - m_GUID: 3fe08e776808c484196085ba8d5a6caa
+    m_Address: Prefabs/Cards/CardItem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 538dac3378b264f939ba287d3022e169
+    m_Address: Prefabs/Cards/CardStack
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57bc77bb6bc5543ea869298238171ea2
+    m_Address: Prefabs/UI/CardsShuffleCompletedPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7d37bae0bcb14dba89349689b37d025
+    m_Address: Prefabs/UI/LoadingPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d29032debd5c64dd68d550f063c5a477
+    m_Address: Prefabs/UI/MainMenuPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f093672c4cab7424ca300b5d198f733d
+    m_Address: Prefabs/UI/BackButtonPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 55f1c1fb1e7a247cdb9e00cecdedeef0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f4ba650a3b63c42ca915c917f56ad978, type: 2}
+    - {fileID: 11400000, guid: b911677f132934050a45b9e1bd0a7241, type: 2}

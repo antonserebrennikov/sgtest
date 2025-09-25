@@ -1,0 +1,4 @@
+{
+	"name": "Game.Common.Presenter",
+	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:a6a61403670034a1d9412c683ae2ed07", "GUID:11d3e58da98654ae3bdd15fbd900b65c" ]
+}
