@@ -16,6 +16,7 @@ namespace Game.Initial.Controller
         public int TargetFps = 60;
         
         private ISceneLoader sceneLoader;
+        private IPrefabLoader prefabLoader;
         private IPresenterLoader presenterLoader;
         
         private void Awake()
@@ -33,12 +34,17 @@ namespace Game.Initial.Controller
         private void RegisterGlobal()
         {
             TinyContainer.Global.Register<ISceneLoader>(new SceneLoader());
-            TinyContainer.Global.Register<IPresenterLoader>(new PresenterLoader(new AddressablePrefabLoader()));
+            
+            var prefabLoader = new AddressablePrefabLoader();
+            
+            TinyContainer.Global.Register<IPrefabLoader>(prefabLoader);
+            TinyContainer.Global.Register<IPresenterLoader>(new PresenterLoader(prefabLoader));
         }
         
         private void Resolve()
         {
             TinyContainer.For(this).Get(out sceneLoader);
+            TinyContainer.For(this).Get(out prefabLoader);
             TinyContainer.For(this).Get(out presenterLoader);
         }
         

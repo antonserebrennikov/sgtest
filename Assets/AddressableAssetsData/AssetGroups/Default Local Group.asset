@@ -15,6 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 9b912babf7fa047bc8cc07209cf1faff
   m_SerializeEntries:
+  - m_GUID: 3fe08e776808c484196085ba8d5a6caa
+    m_Address: Prefabs/Cards/CardItem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 538dac3378b264f939ba287d3022e169
+    m_Address: Prefabs/Cards/CardStack
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57bc77bb6bc5543ea869298238171ea2
+    m_Address: Prefabs/UI/CardsShuffleCompletedPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7d37bae0bcb14dba89349689b37d025
     m_Address: Prefabs/UI/LoadingPresenter
     m_ReadOnly: 0

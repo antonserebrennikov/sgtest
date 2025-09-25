@@ -1,28 +1,42 @@
 using System.Threading.Tasks;
+using Game.Cards.Presenter;
 using Game.Common.Controller;
 using Game.Common.Utils.UI;
 using Jnk.TinyContainer;
+using UnityEngine;
 
 namespace Game.Cards.Controller
 {
     public class CardsSceneStarter: BackButtonController
     {
+        [SerializeField]
+        private CardsController cardsController;
+        
         private ILoadingPresenter loadingPresenter;
         
-        protected override Task InitAsync()
+        protected override async Task InitAsync()
         {
             TinyContainer.For(this).Get(out loadingPresenter);
             
-            loadingPresenter.Hide();
+            var shuffleCompletePresenter = await presenterLoader.LoadPresenterAsync<CardsShuffleCompletedPresenter>();
             
-            return Task.CompletedTask;
+            shuffleCompletePresenter.Hide();
+            TinyContainer.ForSceneOf(this).Register(shuffleCompletePresenter);
+            
+            if (cardsController != null)
+                await cardsController.InitAsync();
+            else
+                Debug.LogError($"{nameof(cardsController)} is null");
+            
+            loadingPresenter.Hide();
         }
 
-        protected override Task DeinitAsync()
+        protected override async Task DeinitAsync()
         {
             loadingPresenter.Show();
             
-            return Task.CompletedTask;
+            if (cardsController != null)
+                await cardsController.DeinitAsync();
         }
     }
 }
