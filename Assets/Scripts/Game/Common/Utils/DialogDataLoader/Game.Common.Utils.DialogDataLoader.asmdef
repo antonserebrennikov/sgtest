@@ -1,0 +1,4 @@
+{
+	"name": "Game.Common.Utils.DialogDataLoader",
+	"references":[ "GUID:67b17b64f07504107adf71a41a31be43" ]
+}

@@ -1,28 +1,47 @@
+using System;
 using System.Threading.Tasks;
 using Game.Common.Controller;
+using Game.Common.Utils.DialogDataLoader;
 using Game.Common.Utils.UI;
+using Game.Words.Presenter;
 using Jnk.TinyContainer;
+using UnityEngine;
 
 namespace Game.Words.Controller
 {
     public class WordsSceneStarter: BackButtonController
     {
         private ILoadingPresenter loadingPresenter;
+        private IDialogDataLoader dialogDataLoader;
+        private WordsPresenter wordsPresenter;
         
-        protected override Task InitAsync()
+        protected override async Task InitAsync()
         {
             TinyContainer.For(this).Get(out loadingPresenter);
+            TinyContainer.For(this).Get(out dialogDataLoader);
+
+            try
+            {
+                var data = await dialogDataLoader.LoadAsync();
+                
+                Debug.Log($"Dialog data loaded successfully {data}");
+                
+                wordsPresenter = await presenterLoader.LoadPresenterAsync<WordsPresenter>();
+                wordsPresenter.Show();
             
-            loadingPresenter.Hide();
-            
-            return Task.CompletedTask;
+                loadingPresenter.Hide();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
-        protected override Task DeinitAsync()
+        protected override async Task DeinitAsync()
         {
             loadingPresenter.Show();
-            
-            return Task.CompletedTask;
+            wordsPresenter?.Hide();
         }
     }
 }

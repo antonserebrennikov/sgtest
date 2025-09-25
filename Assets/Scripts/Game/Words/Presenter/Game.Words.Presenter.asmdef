@@ -1,3 +1,4 @@
 {
-	"name": "Game.Words.Presenter"
+	"name": "Game.Words.Presenter",
+	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:e0a43982cee784eccbf7e1485fc098dd" ]
 }

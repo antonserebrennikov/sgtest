@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Game.Common.Presenter;
 using Game.Common.Utils.Assets.Prefab;
 using Game.Common.Utils.Assets.Scene;
+using Game.Common.Utils.DialogDataLoader;
 using Game.Common.Utils.UI;
 using Game.Scene;
 using Jnk.TinyContainer;
@@ -39,6 +40,7 @@ namespace Game.Initial.Controller
             
             TinyContainer.Global.Register<IPrefabLoader>(prefabLoader);
             TinyContainer.Global.Register<IPresenterLoader>(new PresenterLoader(prefabLoader));
+            TinyContainer.Global.Register<IDialogDataLoader>(new DialogDataLoader());
         }
         
         private void Resolve()
