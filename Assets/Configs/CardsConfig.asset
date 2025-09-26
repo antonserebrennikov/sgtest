@@ -17,4 +17,4 @@ MonoBehaviour:
   cardsCount: 144
   cardsOffset: {x: 1, y: 2}
   animationTime: 1
-  cardPickTime: 0.1
+  cardPickTime: 1
