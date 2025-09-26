@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Game.Common.Utils.DialogData;
 using Game.Words.Model;
@@ -12,6 +13,7 @@ namespace Game.Words.Presenter
     public class WordsPresenter: MonoBehaviour, IPresenter
     {
         private const string NoDataLoadedError = "No data loaded";
+        private const string AvatarLocationLeft = "left";
         
         [SerializeField]
         private WordsView view;
@@ -37,6 +39,7 @@ namespace Game.Words.Presenter
             {
                 view.SetDialogText("");
                 view.SetButtonVisibility(false);
+                view.SetAvatarsVisibility(false);
                 view.OnNextButton += OnNextButtonHandler;
             }
         }
@@ -78,6 +81,13 @@ namespace Game.Words.Presenter
             
             view.SetDialogText(dialog.text);
             view.SetButtonVisibility(index < data.dialogue.Count - 1);
+            
+            var avatar = data.avatars.FirstOrDefault(a => a.name == dialog.name);
+
+            if (avatar != null)
+            {
+                view.SetDialogAvatar(avatar.position == AvatarLocationLeft ? WordsView.AvatarSide.Left : WordsView.AvatarSide.Right, null);
+            }
         }
         
         private void OnNextButtonHandler()

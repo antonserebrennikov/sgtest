@@ -37,7 +37,7 @@ namespace Game.Common.Utils.DialogDataLoader
             if (string.IsNullOrWhiteSpace(json))
                 throw new Exception("Dialog data response was empty.");
 
-            var payload = DialogData.DialogDataFactory.FromJson(json);
+            var payload = DialogDataFactory.FromJson(json);
                 
             if (payload == null)
                 throw new Exception("Failed to parse dialog data payload.");
