@@ -1,12 +1,16 @@
 using System.Threading.Tasks;
 using Game.Common.Controller;
 using Game.Common.Utils.UI;
+using Game.Fire.Presenter;
 using Jnk.TinyContainer;
+using UnityEngine;
 
 namespace Game.Fire.Controller
 {
     public class FireSceneStarter: BackButtonController
     {
+        [SerializeField]
+        private FirePresenter firePresenter;
         private ILoadingPresenter loadingPresenter;
         
         protected override Task InitAsync()

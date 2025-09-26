@@ -1,3 +1,4 @@
 {
-	"name": "Game.Fire.Presenter"
+	"name": "Game.Fire.Presenter",
+	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:1e069bcd90ff54250ad818fc7821c935" ]
 }

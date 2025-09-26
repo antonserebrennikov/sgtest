@@ -1,3 +1,4 @@
 {
-	"name": "Game.Fire.View"
+	"name": "Game.Fire.View",
+	"references":[ "GUID:e32a3ba73e30147a89c58a139f8df87e" ]
 }
