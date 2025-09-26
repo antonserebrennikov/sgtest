@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 9b912babf7fa047bc8cc07209cf1faff
   m_SerializeEntries:
+  - m_GUID: 0d60b038c071147a8a19350abe268a65
+    m_Address: Prefabs/UI/WordsPresenter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fe08e776808c484196085ba8d5a6caa
     m_Address: Prefabs/Cards/CardItem
     m_ReadOnly: 0
