@@ -65,35 +65,55 @@ namespace Game.Words.Presenter
                 ShowError(NoDataLoadedError);
                 throw;
             }
-                
+
             if (data == null || data.dialogue.Count <= 0)
+            {
                 view.SetDialogText(NoDataLoadedError);
+            }
             else
-                ShowDialog(currentDialogIndex);
+            {
+                foreach (var avatar in data.avatars)
+                {
+                    try
+                    {
+                        //TODO: preload in parallel
+                        //Preload avatars
+                        await wordsModel.GetAvatarTexture(avatar);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError(e);
+                    }
+                }
+                
+                await ShowDialog(currentDialogIndex);
+            }
         }
         
-        private void ShowDialog(int index)
+        private async Task ShowDialog(int index)
         {
             if (index >= data.dialogue.Count)
                 return;
             
             var dialog = data.dialogue[index];
             
-            view.SetDialogText(dialog.text);
+            view.SetDialogText(ProcessEmojis(dialog.text));
             view.SetButtonVisibility(index < data.dialogue.Count - 1);
             
             var avatar = data.avatars.FirstOrDefault(a => a.name == dialog.name);
 
             if (avatar != null)
             {
-                view.SetDialogAvatar(avatar.position == AvatarLocationLeft ? WordsView.AvatarSide.Left : WordsView.AvatarSide.Right, null);
+                var avatarTexture = await wordsModel.GetAvatarTexture(avatar);
+                
+                view.SetDialogAvatar(avatar.position == AvatarLocationLeft ? WordsView.AvatarSide.Left : WordsView.AvatarSide.Right, avatarTexture);
             }
         }
         
         private void OnNextButtonHandler()
         {
             currentDialogIndex++;
-            ShowDialog(currentDialogIndex);
+            _ = ShowDialog(currentDialogIndex);
         }
 
         private void ShowError(string message)
@@ -103,6 +123,12 @@ namespace Game.Words.Presenter
                 view.SetDialogText(NoDataLoadedError);
                 view.SetButtonVisibility(false);
             }
+        }
+        
+        //TODO: implement emojis processing
+        private string ProcessEmojis(string message)
+        {
+            return message;
         }
     }
 }

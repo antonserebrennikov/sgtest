@@ -8,26 +8,22 @@ namespace Game.Common.Utils.DialogDataLoader
 {
     public class DialogDataLoader: IDialogDataLoader
     {
-        //TODO: Move to config
-        private const int loadingTimeoutInMilliseconds = 60 * 1000; // 1 minute
-        
-        public async Task<DialogPayload> LoadAsync(string url)
+        public async Task<DialogPayload> LoadAsync(string url, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(url))
                 throw new ArgumentNullException("url");
             
-            using var cancellationTokenSource = new CancellationTokenSource(loadingTimeoutInMilliseconds);
             using var request = UnityWebRequest.Get(url);
             var op = request.SendWebRequest();
 
             // Await completion or cancellation.
-            await AwaitRequestAsync(op, cancellationTokenSource.Token);
+            await AwaitRequestAsync(op, cancellationToken);
             
             if (request.result != UnityWebRequest.Result.Success)
             {
                 // If the request was aborted due to cancellation, surface a cancellation exception.
-                if (cancellationTokenSource.Token.IsCancellationRequested)
-                    throw new OperationCanceledException("Dialog data loading was canceled.", cancellationTokenSource.Token);
+                if (cancellationToken.IsCancellationRequested)
+                    throw new OperationCanceledException("Dialog data loading was canceled.", cancellationToken);
 
                 throw new Exception($"Failed to load dialog data. HTTP: {request.responseCode}, Error: {request.error}");
             }

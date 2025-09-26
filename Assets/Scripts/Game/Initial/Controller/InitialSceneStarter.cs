@@ -4,6 +4,7 @@ using Game.Common.Presenter;
 using Game.Common.Utils.Assets.Prefab;
 using Game.Common.Utils.Assets.Scene;
 using Game.Common.Utils.DialogDataLoader;
+using Game.Common.Utils.TextureLoader;
 using Game.Common.Utils.UI;
 using Game.Scene;
 using Game.Words.Model;
@@ -18,7 +19,6 @@ namespace Game.Initial.Controller
         public int TargetFps = 60;
         
         private ISceneLoader sceneLoader;
-        private IPrefabLoader prefabLoader;
         private IPresenterLoader presenterLoader;
         
         private void Awake()
@@ -38,17 +38,15 @@ namespace Game.Initial.Controller
             TinyContainer.Global.Register<ISceneLoader>(new SceneLoader());
             
             var prefabLoader = new AddressablePrefabLoader();
-            var dialogDataLoader = new DialogDataLoader();
             
             TinyContainer.Global.Register<IPrefabLoader>(prefabLoader);
             TinyContainer.Global.Register<IPresenterLoader>(new PresenterLoader(prefabLoader));
-            TinyContainer.Global.Register<IWordsModel>(new WordsModel(dialogDataLoader));
+            TinyContainer.Global.Register<IWordsModel>(new WordsModel(new DialogDataLoader(), new TextureLoader()));
         }
         
         private void Resolve()
         {
             TinyContainer.For(this).Get(out sceneLoader);
-            TinyContainer.For(this).Get(out prefabLoader);
             TinyContainer.For(this).Get(out presenterLoader);
         }
         
