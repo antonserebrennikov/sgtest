@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Game.Common.Utils.DialogData;
 using Game.Words.Model;
@@ -31,11 +32,13 @@ namespace Game.Words.Presenter
         {
             gameObject.SetActive(true);
             currentDialogIndex = 0;
-            
+
             if (view != null)
+            {
+                view.SetDialogText("");
+                view.SetButtonVisibility(false);
                 view.OnNextButton += OnNextButtonHandler;
-            
-            _ = ShowAsync();
+            }
         }
 
         public void Hide()
@@ -46,10 +49,19 @@ namespace Game.Words.Presenter
             gameObject.SetActive(false);
         }
 
-        private async Task ShowAsync()
+        public async Task ShowAsync()
         {
-            if (data == null)
-                data = await wordsModel.GetDialogData();
+            try
+            {
+                Show();
+                data ??= await wordsModel.GetDialogData();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                ShowError(NoDataLoadedError);
+                throw;
+            }
                 
             if (data == null || data.dialogue.Count <= 0)
                 view.SetDialogText(NoDataLoadedError);
@@ -72,6 +84,15 @@ namespace Game.Words.Presenter
         {
             currentDialogIndex++;
             ShowDialog(currentDialogIndex);
+        }
+
+        private void ShowError(string message)
+        {
+            if (view != null)
+            {
+                view.SetDialogText(NoDataLoadedError);
+                view.SetButtonVisibility(false);
+            }
         }
     }
 }

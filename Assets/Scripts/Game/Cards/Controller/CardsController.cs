@@ -58,11 +58,12 @@ namespace Game.Cards.Controller
             isInialized = true;
         }
         
-        public async Task DeinitAsync()
+        public Task DeinitAsync()
         {
             stack1.Clear();
             stack2.Clear();
             shuffleCompletedPresenter?.Hide();
+            return Task.CompletedTask;
             //TODO: add unloading assets from twen animations
         }
 

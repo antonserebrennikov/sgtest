@@ -8,13 +8,16 @@ namespace Game.Common.Utils.DialogDataLoader
 {
     public class DialogDataLoader: IDialogDataLoader
     {
-        private const string defaultUrl = "https://private-624120-softgamesassignment.apiary-mock.com/v3/magicwords";
+        //TODO: Move to config
         private const int loadingTimeoutInMilliseconds = 60 * 1000; // 1 minute
         
-        public async Task<DialogPayload> LoadAsync()
+        public async Task<DialogPayload> LoadAsync(string url)
         {
+            if (string.IsNullOrEmpty(url))
+                throw new ArgumentNullException("url");
+            
             using var cancellationTokenSource = new CancellationTokenSource(loadingTimeoutInMilliseconds);
-            using var request = UnityWebRequest.Get(defaultUrl);
+            using var request = UnityWebRequest.Get(url);
             var op = request.SendWebRequest();
 
             // Await completion or cancellation.

@@ -7,6 +7,9 @@ namespace Game.Words.Model
 {
     public class WordsModel: IWordsModel
     {
+        //TODO: Move to config
+        private const string dialogUrl = "https://private-624120-softgamesassignment.apiary-mock.com/v3/magicwords";
+        
         private IDialogDataLoader dialogDataLoader;
         private DialogPayload dialogPayload;
         
@@ -23,7 +26,7 @@ namespace Game.Words.Model
             if (dialogDataLoader == null)
                 throw new Exception("Mission data loader is not set");
             
-            dialogPayload = await dialogDataLoader.LoadAsync();
+            dialogPayload = await dialogDataLoader.LoadAsync(dialogUrl);
             
             return dialogPayload;
         }

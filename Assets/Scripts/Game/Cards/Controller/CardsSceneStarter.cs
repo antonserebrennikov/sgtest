@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Game.Cards.Presenter;
 using Game.Common.Controller;
@@ -18,17 +19,27 @@ namespace Game.Cards.Controller
         {
             TinyContainer.For(this).Get(out loadingPresenter);
             
-            var shuffleCompletePresenter = await presenterLoader.LoadPresenterAsync<CardsShuffleCompletedPresenter>();
-            
-            shuffleCompletePresenter.Hide();
-            TinyContainer.ForSceneOf(this).Register(shuffleCompletePresenter);
-            
-            if (cardsController != null)
-                await cardsController.InitAsync();
-            else
-                Debug.LogError($"{nameof(cardsController)} is null");
-            
-            loadingPresenter.Hide();
+            try
+            {
+                var shuffleCompletePresenter = await presenterLoader.LoadPresenterAsync<CardsShuffleCompletedPresenter>();
+
+                shuffleCompletePresenter.Hide();
+                TinyContainer.ForSceneOf(this).Register(shuffleCompletePresenter);
+
+                if (cardsController != null)
+                    await cardsController.InitAsync();
+                else
+                    Debug.LogError($"{nameof(cardsController)} is null");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                throw;
+            }
+            finally
+            {
+                loadingPresenter.Hide();
+            }
         }
 
         protected override async Task DeinitAsync()

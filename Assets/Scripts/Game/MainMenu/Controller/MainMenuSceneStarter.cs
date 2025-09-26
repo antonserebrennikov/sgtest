@@ -35,12 +35,15 @@ namespace Game.MainMenu.Controller
                 mainMenuPresenter = await presenterLoader.LoadPresenterAsync<MainMenuPresenter>();
                 mainMenuPresenter.OnSceneLoad += OnSceneLoadClick;
                 mainMenuPresenter.Show();
-                loadingPresenter.Hide();
             }
             catch (Exception e)
             {
                 Debug.LogError(e);
                 throw;
+            }
+            finally
+            {
+                loadingPresenter.Hide();
             }
         }
 
