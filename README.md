@@ -4,6 +4,8 @@ A modular Unity project built with a MVP (Model-View-Presenter) architecture, li
 
 Project was developed in just 16 working hours prioritizing architecture, extensibility, and maintainability over visual polish and logic feature details (which can be easily fixed and polished later).
 
+Latest WebGL build is here: https://play.unity.com/en/games/9637d1c6-761b-4b69-9207-f73ce4bde3a5/sg-test-game
+
 ---
 
 ## Overview
