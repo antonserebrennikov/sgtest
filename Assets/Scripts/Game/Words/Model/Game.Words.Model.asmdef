@@ -1,3 +1,4 @@
 {
-	"name": "Game.Words.Model"
+	"name": "Game.Words.Model",
+	"references":[ "GUID:424d278a204584d55882427052e30d45", "GUID:67b17b64f07504107adf71a41a31be43", "GUID:60d68430ddaa54be08d1b97e61928cfa" ]
 }

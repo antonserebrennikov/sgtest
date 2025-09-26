@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
 using Game.Common.Controller;
-using Game.Common.Utils.DialogDataLoader;
 using Game.Common.Utils.UI;
+using Game.Words.Model;
 using Game.Words.Presenter;
 using Jnk.TinyContainer;
 using UnityEngine;
@@ -12,17 +12,17 @@ namespace Game.Words.Controller
     public class WordsSceneStarter: BackButtonController
     {
         private ILoadingPresenter loadingPresenter;
-        private IDialogDataLoader dialogDataLoader;
+        private IWordsModel wordsModel;
         private WordsPresenter wordsPresenter;
         
         protected override async Task InitAsync()
         {
             TinyContainer.For(this).Get(out loadingPresenter);
-            TinyContainer.For(this).Get(out dialogDataLoader);
+            TinyContainer.For(this).Get(out wordsModel);
 
             try
             {
-                var data = await dialogDataLoader.LoadAsync();
+                var data = await wordsModel.GetDialogData();
                 
                 Debug.Log($"Dialog data loaded successfully {data}");
                 

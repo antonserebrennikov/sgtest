@@ -6,6 +6,7 @@ using Game.Common.Utils.Assets.Scene;
 using Game.Common.Utils.DialogDataLoader;
 using Game.Common.Utils.UI;
 using Game.Scene;
+using Game.Words.Model;
 using Jnk.TinyContainer;
 using UnityEngine;
 
@@ -37,10 +38,11 @@ namespace Game.Initial.Controller
             TinyContainer.Global.Register<ISceneLoader>(new SceneLoader());
             
             var prefabLoader = new AddressablePrefabLoader();
+            var dialogDataLoader = new DialogDataLoader();
             
             TinyContainer.Global.Register<IPrefabLoader>(prefabLoader);
             TinyContainer.Global.Register<IPresenterLoader>(new PresenterLoader(prefabLoader));
-            TinyContainer.Global.Register<IDialogDataLoader>(new DialogDataLoader());
+            TinyContainer.Global.Register<IWordsModel>(new WordsModel(dialogDataLoader));
         }
         
         private void Resolve()
