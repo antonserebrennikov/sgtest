@@ -1,3 +1,4 @@
+using System;
 using MVP.View;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,11 @@ namespace Game.Words.View
     {
         [SerializeField][Header("Dialog text")]
         private TMP_Text dialogText;
+        
+        [SerializeField][Header("Next button")]
+        private GameObject nextButton;
+        
+        public Action OnNextButton;
 
         private void Awake()
         {
@@ -24,6 +30,22 @@ namespace Game.Words.View
             }
             
             dialogText.text = text;
+        }
+        
+        public void SetButtonVisibility(bool isVisible)
+        {
+            if (nextButton == null)
+            {
+                Debug.LogError($"{nameof(nextButton)} is null");
+                return;
+            }
+            
+            nextButton.SetActive(isVisible);
+        }
+        
+        public void OnNextButtonClick()
+        {
+            OnNextButton?.Invoke();
         }
     }
 }

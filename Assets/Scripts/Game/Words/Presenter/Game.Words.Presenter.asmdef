@@ -1,4 +1,21 @@
 {
-	"name": "Game.Words.Presenter",
-	"references":[ "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77", "GUID:e0a43982cee784eccbf7e1485fc098dd" ]
+    "name": "Game.Words.Presenter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b3e0e0df9cc6d4e2ebae1721ace66f77",
+        "GUID:e0a43982cee784eccbf7e1485fc098dd",
+        "GUID:40e6041b2ea66444ba88e907770c92d5",
+        "GUID:67b17b64f07504107adf71a41a31be43",
+        "GUID:683eb415c59a66c40b09d8cf1710d72f",
+        "GUID:424d278a204584d55882427052e30d45"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
