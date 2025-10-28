@@ -1,12 +1,31 @@
-# Game Project (Unity, URP, C#)
+# Unity Developer Test Assignment
+Implement three separate interactive demonstrations inside a single Unity project and provide a hosted WebGL build. Each demo should be reachable from an in-game menu and render cleanly on both desktop and mobile platfoms. Show a simple-performance overlay (FPS) in the top-left at all times. Feel free to use any 3-rd party assets. You must send out the link to the repo in 48 hours since you received the task.
+
+## Demo A — “Stacked Cards”
+Create a presentation of 144 sprites (treated like cards) arranged in two vertical piles so each element partially overlaps the one under it. Every second, the top element of a pile should animate smoothly into another pile, continuing until a full swap cycle completes. Above each pile display a live counter showing how many items are currently in that pile. When all moving animations finish, display an overlay message announcing completion.
+
+## Demo B — “Dialog Representer”
+Create a lightweight dialogue presentation system that composes lines of text combined with Unicode emoji and character avatar. Load the dialog dataset dynamically from a remote JSON endpoint at runtime. Gracefully handle missing or broken avatar URLs and absent fields in the data. Render dialogue entries with avatar image, name, and combined text+emoji line.
+
+## Demo C — “Fire FX”
+Create a particle-based fire demo. Expose a UI button that cycles the flame through three colors (orange → green → blue in a loop) using an Animator controller. The visual should read like an animated flame with a smooth transition between colors on the UI button click.
+
+## Delivery Requirements:
+- Project language: C# (Unity 6).
+- Provide an in-game menu to access each demo.
+- Responsive canvas/layout for both mobile and desktop.
+- FPS counter in the top-left corner.
+- Produce a WebGL build and include a hosted link.
+- You must deliver the result in 48 hours since you received the task.
+
+---
+## Game Project Implementation (Unity, URP, C#)
 
 A modular Unity project built with a MVP (Model-View-Presenter) architecture, lightweight dependency injection, and asynchronous loading patterns. The project includes multiple feature scenes (e.g., Cards, Words, Fire) and common infrastructure for scenes, presenters, and asset loading.
 
 Project was developed in just 16 working hours prioritizing architecture, extensibility, and maintainability over visual polish and logic feature details (which can be easily fixed and polished later).
 
 Latest WebGL build is here: https://play.unity.com/en/games/9637d1c6-761b-4b69-9207-f73ce4bde3a5/sg-test-game
-
----
 
 ## Overview
 This project demonstrates a clean separation between UI logic (Presenters), UI visuals (Views), and scene lifecycle management (Scene Starters/Controllers). It uses a small DI container for wiring dependencies and emphasizes async operations for loading assets, presenters (with caching), and scenes. Universal Render Pipeline (URP) is used for rendering.
